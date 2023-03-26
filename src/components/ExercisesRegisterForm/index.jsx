@@ -20,16 +20,24 @@ export default function ExerciseRegisterForm() {
         bodyPart: "",
         classification: "",
       });
-      toast.success("Exercise created successfully!");
+      toast.success("Exercício criado com sucesso!");
     } catch (error) {
-      toast.error(`Error: ${error.message}`);
+      if (error.response.status === 409) {
+        toast.error("Nome do exercício já foi cadastrado!");
+      }
+
+      if (dataExercise.nameExerc === "" || dataExercise.bodyPart === "") {
+        toast.warn("Por favor, preencha todos os dados!");
+      } else {
+        toast.error("Por favor, tente novamente!");
+      }
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="nameExerc">
-        Exercise Name:
+        Nome do Exercício:
         <input
           type="text"
           value={dataExercise.nameExerc}
@@ -42,7 +50,7 @@ export default function ExerciseRegisterForm() {
         />
       </label>
       <label htmlFor="bodyPart">
-        Body Part:
+        Parte do Corpo:
         <input
           type="text"
           value={dataExercise.bodyPart}
@@ -55,7 +63,7 @@ export default function ExerciseRegisterForm() {
         />
       </label>
       <label htmlFor="classification">
-        Classification:
+        Classificação:
         <input
           type="text"
           value={dataExercise?.classification}
