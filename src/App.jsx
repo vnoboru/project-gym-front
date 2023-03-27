@@ -1,16 +1,21 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import RegisterData from "./pages/RegisterData";
+import { ExerciseProvider } from "./contexts/ExerciseContext";
+import { ExercisePage, TechniquePage, TrainingPage } from "./pages";
 
 function App() {
   return (
     <>
       <ToastContainer />
-      <Router>
-        <Routes>
-          <Route path="/dashboard" element={<RegisterData />} />
-        </Routes>
-      </Router>
+      <ExerciseProvider>
+        <Router>
+          <Routes>
+            <Route path="/dashboard" element={<TrainingPage />} />
+            <Route path="/dashboard/technique" element={<TechniquePage />} />
+            <Route path="/dashboard/exercise" element={<ExercisePage />} />
+          </Routes>
+        </Router>
+      </ExerciseProvider>
     </>
   );
 }
