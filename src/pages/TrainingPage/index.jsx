@@ -1,7 +1,13 @@
+import { TrainingDataFetcher } from "../../components/DataFetcher";
 import { TrainingRegisterForm } from "../../components/RegisterForm";
 
 export function TrainingPage() {
-  return <TrainingRegisterForm />;
+  return (
+    <>
+      <TrainingRegisterForm />
+      <TrainingDataFetcher />
+    </>
+  );
 }
 
 const trainingDataPage = {

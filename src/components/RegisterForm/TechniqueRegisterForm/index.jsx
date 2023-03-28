@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
-import TechniqueContext from "../../../contexts/techniqueContext";
+import TechniqueContext from "../../../contexts/TechniqueContext";
 import usePostTechnique from "../../../hooks/api/usePostTechnique";
 import { InputData } from "../../GlobalComponentsStyles/styles";
 import { ContainerLabel, Form } from "../formStyles";

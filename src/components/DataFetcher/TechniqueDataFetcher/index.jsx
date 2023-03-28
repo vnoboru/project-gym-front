@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
-import TechniqueContext from "../../../contexts/techniqueContext";
+import TechniqueContext from "../../../contexts/TechniqueContext";
 import useDeleteTechnique from "../../../hooks/api/useDeleteTechnique";
 import usePutTechnique from "../../../hooks/api/usePutTechnique";
 import { InputData } from "../../GlobalComponentsStyles/styles";
@@ -35,7 +35,6 @@ export default function TechniqueDataFetcher() {
   }
 
   async function removeTechnique(techniqueId) {
-    console.log(techniqueId);
     try {
       await deleteTechnique(techniqueId);
       window.location.reload();

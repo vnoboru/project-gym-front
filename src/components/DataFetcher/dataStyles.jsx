@@ -8,6 +8,10 @@ export const ContainerTechnique = styled.div`
   width: 1045px;
 `;
 
+export const ContainerTraining = styled.div`
+  width: 325px;
+`;
+
 export const ContainerMain = styled.div`
   display: flex;
   margin-top: 10px;

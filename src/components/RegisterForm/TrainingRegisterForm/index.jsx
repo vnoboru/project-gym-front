@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
+import TrainingContext from "../../../contexts/TrainingContext";
 import usePostTraining from "../../../hooks/api/usePostTraining";
 import { InputData } from "../../GlobalComponentsStyles/styles";
 import { ContainerLabel, Form } from "../formStyles";
 
 export default function TrainingRegisterForm() {
+  const { getTraining } = useContext(TrainingContext);
+
   const [dataTraining, setDataTraining] = useState({
     nameTraining: "",
   });
@@ -15,6 +18,7 @@ export default function TrainingRegisterForm() {
     event.preventDefault();
     try {
       await postTraining(dataTraining);
+      getTraining();
       setDataTraining({
         nameTraining: "",
       });
