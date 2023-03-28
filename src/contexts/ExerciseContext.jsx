@@ -9,10 +9,6 @@ export default ExerciseContext;
 export function ExerciseProvider({ children }) {
   const { exercises, exercisesLoading, exercisesError, getExercises } = useExercises();
 
-  if (exercisesLoading) {
-    toast.info("Carregando...");
-  }
-
   if (exercisesError) {
     toast.error("Não pode conectar ao servidor. Por favor, tente novamente mais tarde.");
   }

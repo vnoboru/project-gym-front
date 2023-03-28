@@ -4,7 +4,7 @@ import ExerciseContext from "../../../contexts/ExerciseContext";
 import useDeleteExercise from "../../../hooks/api/useDeleteExercise";
 import usePutExercise from "../../../hooks/api/usePutExercise";
 import { InputData } from "../../GlobalComponentsStyles/styles";
-import { ContainerData, ContainerIcons, ContainerMain } from "../dataStyles";
+import { ContainerData, ContainerExercise, ContainerIcons, ContainerMain } from "../dataStyles";
 
 export default function ExerciseDataFetcher() {
   const { exercisesInfo } = useContext(ExerciseContext);
@@ -45,7 +45,7 @@ export default function ExerciseDataFetcher() {
   }
 
   return (
-    <>
+    <ContainerExercise>
       <ContainerMain>
         <h1>Exercícios</h1>
         <h1>Parte do Corpo</h1>
@@ -76,6 +76,6 @@ export default function ExerciseDataFetcher() {
             </ContainerIcons>
           </ContainerData>
         ))}
-    </>
+    </ContainerExercise>
   );
 }

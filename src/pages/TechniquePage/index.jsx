@@ -1,7 +1,13 @@
+import { TechniqueDataFetcher } from "../../components/DataFetcher";
 import { TechniqueRegisterForm } from "../../components/RegisterForm";
 
 export function TechniquePage() {
-  return <TechniqueRegisterForm />;
+  return (
+    <>
+      <TechniqueRegisterForm />
+      <TechniqueDataFetcher />
+    </>
+  );
 }
 
 const techniqueDataPage = {

@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
+export const ContainerExercise = styled.div`
+  width: 810px;
+`;
+
+export const ContainerTechnique = styled.div`
+  width: 1045px;
+`;
+
 export const ContainerMain = styled.div`
   display: flex;
   margin-top: 10px;
   margin-left: 20px;
-  width: 723px;
 
   h1 {
-    width: 100%;
+    width: 242px;
     font-size: 22px;
     font-weight: 700;
   }

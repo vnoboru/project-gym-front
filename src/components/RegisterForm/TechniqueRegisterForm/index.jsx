@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
+import TechniqueContext from "../../../contexts/techniqueContext";
 import usePostTechnique from "../../../hooks/api/usePostTechnique";
 import { InputData } from "../../GlobalComponentsStyles/styles";
 import { ContainerLabel, Form } from "../formStyles";
 
 export default function TechniqueRegisterForm() {
+  const { getTechnique } = useContext(TechniqueContext);
+
   const [dataTechnique, setDataTechnique] = useState({
     nameTechnique: "",
     description: "",
@@ -18,6 +21,7 @@ export default function TechniqueRegisterForm() {
     event.preventDefault();
     try {
       await postTechnique(dataTechnique);
+      getTechnique();
       setDataTechnique({
         nameTechnique: "",
         description: "",
