@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
+import ExerciseContext from "../../../contexts/ExerciseContext";
 import usePostExercise from "../../../hooks/api/usePostExercise";
+import { InputData } from "../../GlobalComponentsStyles/styles";
 import { ContainerLabel, Form } from "../formStyles";
 
 export default function ExerciseRegisterForm() {
+  const { getExercises } = useContext(ExerciseContext);
+
   const [dataExercise, setDataExercise] = useState({
     nameExerc: "",
     bodyPart: "",
@@ -16,6 +20,7 @@ export default function ExerciseRegisterForm() {
     event.preventDefault();
     try {
       await postExercise(dataExercise);
+      getExercises();
       setDataExercise({
         nameExerc: "",
         bodyPart: "",
@@ -40,7 +45,7 @@ export default function ExerciseRegisterForm() {
       <ContainerLabel>
         <label htmlFor="nameExerc">
           <h1>Nome do Exercício:</h1>
-          <input
+          <InputData
             type="text"
             value={dataExercise.nameExerc}
             onChange={(event) =>
@@ -53,7 +58,7 @@ export default function ExerciseRegisterForm() {
         </label>
         <label htmlFor="bodyPart">
           <h1>Parte do Corpo:</h1>
-          <input
+          <InputData
             type="text"
             value={dataExercise.bodyPart}
             onChange={(event) =>
@@ -66,7 +71,7 @@ export default function ExerciseRegisterForm() {
         </label>
         <label htmlFor="classification">
           <h1>Classificação:</h1>
-          <input
+          <InputData
             type="text"
             value={dataExercise?.classification}
             onChange={(event) =>

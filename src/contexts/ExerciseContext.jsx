@@ -7,7 +7,7 @@ const ExerciseContext = createContext();
 export default ExerciseContext;
 
 export function ExerciseProvider({ children }) {
-  const { exercises, exercisesLoading, exercisesError } = useExercises();
+  const { exercises, exercisesLoading, exercisesError, getExercises } = useExercises();
 
   if (exercisesLoading) {
     toast.info("Carregando...");
@@ -19,6 +19,7 @@ export function ExerciseProvider({ children }) {
 
   const value = useMemo(
     () => ({
+      getExercises,
       exercisesInfo: exercises,
       exercisesInfoError: exercisesError,
     }),

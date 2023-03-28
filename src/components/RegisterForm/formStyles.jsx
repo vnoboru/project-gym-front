@@ -30,15 +30,5 @@ export const ContainerLabel = styled.div`
       font-weight: 700;
       margin-bottom: 5px;
     }
-
-    input {
-      border-color: #cccccc;
-      border-style: solid;
-      border-width: 2px;
-      border-radius: 4px;
-      font-size: 14px;
-      padding: 4px;
-      font-weight: bold;
-    }
   }
 `;

@@ -6,13 +6,13 @@ export default function useExercises() {
     data: exercises,
     loading: exercisesLoading,
     error: exercisesError,
-    act: bookExercises,
+    act: getExercises,
   } = useAsync(() => exercisesApi.getExercises());
 
   return {
     exercises,
     exercisesLoading,
     exercisesError,
-    bookExercises,
+    getExercises,
   };
 }

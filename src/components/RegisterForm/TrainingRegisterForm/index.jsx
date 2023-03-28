@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import usePostTraining from "../../../hooks/api/usePostTraining";
+import { InputData } from "../../GlobalComponentsStyles/styles";
 import { ContainerLabel, Form } from "../formStyles";
 
 export default function TrainingRegisterForm() {
@@ -37,7 +38,7 @@ export default function TrainingRegisterForm() {
       <ContainerLabel>
         <label htmlFor="nameTraining">
           <h1>Nome do Treino:</h1>
-          <input
+          <InputData
             type="text"
             value={dataTraining.nameTraining}
             onChange={(event) =>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import usePostTechnique from "../../../hooks/api/usePostTechnique";
+import { InputData } from "../../GlobalComponentsStyles/styles";
 import { ContainerLabel, Form } from "../formStyles";
 
 export default function TechniqueRegisterForm() {
@@ -39,7 +40,7 @@ export default function TechniqueRegisterForm() {
       <ContainerLabel>
         <label htmlFor="nameTechnique">
           <h1>Nome da Técnica:</h1>
-          <input
+          <InputData
             type="text"
             value={dataTechnique.nameTechnique}
             onChange={(event) =>
@@ -52,7 +53,7 @@ export default function TechniqueRegisterForm() {
         </label>
         <label htmlFor="description">
           <h1>Descrição:</h1>
-          <input
+          <InputData
             type="text"
             value={dataTechnique.description}
             onChange={(event) =>
@@ -65,7 +66,7 @@ export default function TechniqueRegisterForm() {
         </label>
         <label htmlFor="numberSeries">
           <h1>Número de séries:</h1>
-          <input
+          <InputData
             type="text"
             value={dataTechnique.numberSeries}
             onChange={(event) =>
@@ -78,7 +79,7 @@ export default function TechniqueRegisterForm() {
         </label>
         <label htmlFor="numberRep">
           <h1>Número de repetições:</h1>
-          <input
+          <InputData
             type="text"
             value={dataTechnique.numberRep}
             onChange={(event) =>
