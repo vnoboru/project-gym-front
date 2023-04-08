@@ -9,9 +9,3 @@ export function TechniquePage() {
     </>
   );
 }
-
-const techniqueDataPage = {
-  TechniqueRegisterForm,
-};
-
-export { techniqueDataPage };

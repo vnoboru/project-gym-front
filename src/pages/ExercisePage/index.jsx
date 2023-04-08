@@ -9,10 +9,3 @@ export function ExercisePage() {
     </>
   );
 }
-
-const exerciseDataPage = {
-  ExerciseRegisterForm,
-  ExerciseDataFetcher,
-};
-
-export { exerciseDataPage };

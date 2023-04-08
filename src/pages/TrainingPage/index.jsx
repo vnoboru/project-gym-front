@@ -9,9 +9,3 @@ export function TrainingPage() {
     </>
   );
 }
-
-const trainingDataPage = {
-  TrainingRegisterForm,
-};
-
-export { trainingDataPage };
