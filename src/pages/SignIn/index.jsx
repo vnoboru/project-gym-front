@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import useSignIn from "../../hooks/api/useSignIn";
@@ -35,7 +35,7 @@ export default function SignIn() {
         </form>
       </ContainerLogin>
       <div>
-        <div to="/enroll">Não possui login? Inscreva-se</div>
+        <Link to="/enroll">Não possui login? Inscreva-se</Link>
       </div>
     </div>
   );

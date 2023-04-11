@@ -7,6 +7,7 @@ import { TechniqueProvider } from "./contexts/TechniqueContext";
 import { TrainingProvider } from "./contexts/TrainingContext";
 import { ExercisePage, TechniquePage, TrainingPage } from "./pages";
 import { DashboardPage } from "./pages/DashBoardPage";
+import Enroll from "./pages/Enroll";
 import SignIn from "./pages/SignIn";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
               <Router>
                 <Routes>
                   <Route path="/" element={<SignIn />} />
+                  <Route path="/enroll" element={<Enroll />} />
                   <Route path="/dashboard" element={<DashboardPage />} />
                   <Route path="/dashboard/training" element={<TrainingPage />} />
                   <Route path="/dashboard/technique" element={<TechniquePage />} />
