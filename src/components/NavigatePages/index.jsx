@@ -4,6 +4,9 @@ export default function NavigatePages() {
   const navigate = useNavigate();
   return (
     <>
+      <button type="button" onClick={() => navigate("/dashboard")}>
+        Home
+      </button>
       <button type="button" onClick={() => navigate("/dashboard/exercise")}>
         Exercicio
       </button>

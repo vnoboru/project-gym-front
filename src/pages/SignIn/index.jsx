@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styled from "styled-components";
+import UserContext from "../../contexts/UserContext";
 import useSignIn from "../../hooks/api/useSignIn";
 
 export default function SignIn() {
@@ -10,15 +11,22 @@ export default function SignIn() {
 
   const { loadingSignIn, signIn } = useSignIn();
 
+  const { setUserData } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   async function submit(event) {
     event.preventDefault();
 
     try {
-      await signIn(email, password);
+      const userData = await signIn(email, password);
+      setUserData(userData);
       toast.success("Login realizado com sucesso!");
-      navigate("/dashboard");
+      if (email === "admin@admin.com") {
+        navigate("/dashboard");
+      } else {
+        console.log("vai acessar outra página");
+      }
     } catch (err) {
       toast.error("Não foi possível fazer o login!");
     }

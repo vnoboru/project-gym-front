@@ -5,6 +5,7 @@ import { ExerciseProvider } from "./contexts/ExerciseContext";
 import { ListProvider } from "./contexts/ListContext";
 import { TechniqueProvider } from "./contexts/TechniqueContext";
 import { TrainingProvider } from "./contexts/TrainingContext";
+import { UserProvider } from "./contexts/UserContext";
 import { ExercisePage, TechniquePage, TrainingPage } from "./pages";
 import { DashboardPage } from "./pages/DashBoardPage";
 import Enroll from "./pages/Enroll";
@@ -16,22 +17,24 @@ function App() {
       <GlobalStyle />
       <ToastContainer />
       <ListProvider>
-        <TrainingProvider>
-          <TechniqueProvider>
-            <ExerciseProvider>
-              <Router>
-                <Routes>
-                  <Route path="/" element={<SignIn />} />
-                  <Route path="/enroll" element={<Enroll />} />
-                  <Route path="/dashboard" element={<DashboardPage />} />
-                  <Route path="/dashboard/training" element={<TrainingPage />} />
-                  <Route path="/dashboard/technique" element={<TechniquePage />} />
-                  <Route path="/dashboard/exercise" element={<ExercisePage />} />
-                </Routes>
-              </Router>
-            </ExerciseProvider>
-          </TechniqueProvider>
-        </TrainingProvider>
+        <UserProvider>
+          <TrainingProvider>
+            <TechniqueProvider>
+              <ExerciseProvider>
+                <Router>
+                  <Routes>
+                    <Route path="/" element={<SignIn />} />
+                    <Route path="/enroll" element={<Enroll />} />
+                    <Route path="/dashboard" element={<DashboardPage />} />
+                    <Route path="/dashboard/training" element={<TrainingPage />} />
+                    <Route path="/dashboard/technique" element={<TechniquePage />} />
+                    <Route path="/dashboard/exercise" element={<ExercisePage />} />
+                  </Routes>
+                </Router>
+              </ExerciseProvider>
+            </TechniqueProvider>
+          </TrainingProvider>
+        </UserProvider>
       </ListProvider>
     </>
   );
