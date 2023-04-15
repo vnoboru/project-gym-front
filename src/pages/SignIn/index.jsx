@@ -35,8 +35,8 @@ export default function SignIn() {
     <div>
       <ContainerLogin>
         <form onSubmit={submit}>
-          <input label="E-mail" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <input label="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input label="E-mail" type="text" onChange={(e) => setEmail(e.target.value)} />
+          <input label="Senha" type="password" onChange={(e) => setPassword(e.target.value)} />
           <button type="submit" color="primary" disabled={loadingSignIn}>
             Entrar
           </button>

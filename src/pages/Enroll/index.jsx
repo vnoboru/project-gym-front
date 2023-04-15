@@ -10,7 +10,6 @@ export default function Enroll() {
   });
   const [confirmPassword, setConfirmPassword] = useState("");
   const { loadingSignUp, signUp } = useSignUp();
-
   const navigate = useNavigate();
 
   const submit = async (event) => {
