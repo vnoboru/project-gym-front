@@ -15,6 +15,9 @@ export default function DataFilter() {
   const [selectedExercises, setSelectedExercises] = useState([]);
   const [selectedTechniques, setSelectedTechniques] = useState([]);
 
+  const [trainingId, setTrainingId] = useState(1); // ID do treino atual
+  const [trainingDays, setTrainingDays] = useState(3); // Número de dias do treino atual
+
   const bodyParts = [...new Set(exercisesInfo.map((e) => e.bodyPart))];
   const nameTechniques = [...new Set(techniqueInfo.map((t) => t.nameTechnique))];
   const { filterExerc, getFilterExerc } = useListExerc();
@@ -39,16 +42,30 @@ export default function DataFilter() {
   };
 
   const handleAddTech = (t) => {
-    const alreadySelected = selectedTechniques.some((ex) => ex.id === t.id);
-    if (alreadySelected) {
-      toast.error("Este exercício já foi selecionado.");
-      return;
-    }
+    selectedTechniques.some((ex) => ex.id === t.id);
+
     setSelectedTechniques((prevTechniques) => [...prevTechniques, t]);
+  };
+
+  const handleAddToTraining = () => {
+    if (selectedExercises.length === 0 || selectedTechniques.length === 0) {
+      toast.error("Adicione pelo menos um exercício e uma técnica.");
+    } else if (selectedExercises.length !== selectedTechniques.length) {
+      toast.error("O número de exercícios e técnicas selecionados deve ser igual.");
+    }
+    const trainingObjects = selectedExercises.map((e, index) => ({
+      idExerc: e.id,
+      idTechnique: selectedTechniques[index].id,
+      daysTraining: trainingDays,
+      idTraining: trainingId,
+    }));
+    console.log(trainingObjects);
   };
 
   return (
     <>
+      <input type="text" value={trainingId} onChange={(e) => setTrainingId(e.target.value)} />
+      <input type="text" value={trainingDays} onChange={(e) => setTrainingDays(e.target.value)} />
       <select value={selectedBodyPart} onChange={(e) => setSelectedBodyPart(e.target.value)}>
         <option>Selecione uma opção</option>
         {bodyParts.map((bodyPart) => (
@@ -94,6 +111,9 @@ export default function DataFilter() {
           </ul>
         </div>
       )}
+      <button type="button" onClick={handleAddToTraining}>
+        Adicionar ao treino
+      </button>
     </>
   );
 }
