@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import logo from "../../assets/images/logo.png";
 import useSignUp from "../../hooks/api/useSignUp";
+import { ContainerData, ContainerImage, ContainerScreen, SidebarLogo, StyledLink } from "../globalStylesPages";
 
 export default function Enroll() {
   const [dataUser, setDataUser] = useState({
@@ -29,35 +31,42 @@ export default function Enroll() {
   };
 
   return (
-    <div>
-      <div>
+    <ContainerScreen>
+      <ContainerImage>
+        <img src={logo} alt="logo" />
+      </ContainerImage>
+      <ContainerData>
         <form onSubmit={submit}>
           <input
             label="E-mail"
-            type="text"
+            type="email"
+            placeholder="Email"
             value={dataUser.email}
             onChange={(event) => setDataUser({ ...dataUser, email: event.target.value })}
           />
           <input
             label="Senha"
             type="password"
+            placeholder="Senha"
             value={dataUser.password}
             onChange={(event) => setDataUser({ ...dataUser, password: event.target.value })}
           />
           <input
             label="Repita sua senha"
             type="password"
+            placeholder="Repita a senha"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <button type="submit" color="primary" disabled={loadingSignUp}>
             Inscrever
           </button>
-        </form>
-      </div>
-      <div>
-        <Link to="/">Já está inscrito? Faça login</Link>
-      </div>
-    </div>
+        </form>{" "}
+        <StyledLink to="/">Já está inscrito? Faça login</StyledLink>
+      </ContainerData>
+      <SidebarLogo>
+        <img src={logo} alt="logo" />
+      </SidebarLogo>
+    </ContainerScreen>
   );
 }

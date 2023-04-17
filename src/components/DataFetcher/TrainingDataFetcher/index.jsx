@@ -4,7 +4,7 @@ import TrainingContext from "../../../contexts/TrainingContext";
 import useDeleteTraining from "../../../hooks/api/useDeleteTraining";
 import usePutTraining from "../../../hooks/api/usePutTraining";
 import { InputData } from "../../GlobalComponentsStyles/styles";
-import { ContainerData, ContainerIcons, ContainerMain, ContainerTraining } from "../dataStyles";
+import { ContainerData, ContainerIcons, ContainerInput, ContainerTraining } from "../dataStyles";
 
 export default function TrainingDataFetcher() {
   const { trainingInfo } = useContext(TrainingContext);
@@ -46,18 +46,18 @@ export default function TrainingDataFetcher() {
 
   return (
     <ContainerTraining>
-      <ContainerMain>
-        <h1>Treino</h1>
-      </ContainerMain>
       {data
         .sort((a, b) => a.id - b.id)
         .map((training) => (
           <ContainerData key={training.id}>
-            <InputData
-              name="nameTraining"
-              value={training.nameTraining || ""}
-              onChange={(event) => handleInputChange(event, training.id)}
-            />
+            <ContainerInput>
+              <h1>Treino:</h1>
+              <InputData
+                name="nameTraining"
+                value={training.nameTraining || ""}
+                onChange={(event) => handleInputChange(event, training.id)}
+              />
+            </ContainerInput>
             <ContainerIcons>
               <ion-icon onClick={handleTrainingChange} name="send-outline" />
               <ion-icon onClick={() => removeTraining(training.id)} name="trash-outline" />

@@ -4,7 +4,7 @@ import ExerciseContext from "../../../contexts/ExerciseContext";
 import useDeleteExercise from "../../../hooks/api/useDeleteExercise";
 import usePutExercise from "../../../hooks/api/usePutExercise";
 import { InputData } from "../../GlobalComponentsStyles/styles";
-import { ContainerData, ContainerExercise, ContainerIcons, ContainerMain } from "../dataStyles";
+import { ContainerData, ContainerExercise, ContainerIcons, ContainerInput } from "../dataStyles";
 
 export default function ExerciseDataFetcher() {
   const { exercisesInfo } = useContext(ExerciseContext);
@@ -46,30 +46,34 @@ export default function ExerciseDataFetcher() {
 
   return (
     <ContainerExercise>
-      <ContainerMain>
-        <h1>Exercícios</h1>
-        <h1>Parte do Corpo</h1>
-        <h1>Classificação</h1>
-      </ContainerMain>
       {data
         .sort((a, b) => a.id - b.id)
         .map((exercise) => (
           <ContainerData key={exercise.id}>
-            <InputData
-              name="nameExerc"
-              value={exercise.nameExerc}
-              onChange={(event) => handleInputChange(event, exercise.id)}
-            />
-            <InputData
-              name="bodyPart"
-              value={exercise.bodyPart}
-              onChange={(event) => handleInputChange(event, exercise.id)}
-            />
-            <InputData
-              name="classification"
-              value={exercise.classification || ""}
-              onChange={(event) => handleInputChange(event, exercise.id)}
-            />
+            <ContainerInput>
+              <h1>Exercício: </h1>
+              <InputData
+                name="nameExerc"
+                value={exercise.nameExerc}
+                onChange={(event) => handleInputChange(event, exercise.id)}
+              />
+            </ContainerInput>
+            <ContainerInput>
+              <h1>Parte do Corpo:</h1>
+              <InputData
+                name="bodyPart"
+                value={exercise.bodyPart}
+                onChange={(event) => handleInputChange(event, exercise.id)}
+              />
+            </ContainerInput>
+            <ContainerInput>
+              <h1>Classificação:</h1>
+              <InputData
+                name="classification"
+                value={exercise.classification || ""}
+                onChange={(event) => handleInputChange(event, exercise.id)}
+              />
+            </ContainerInput>
             <ContainerIcons>
               <ion-icon onClick={handleExerciseChange} name="send-outline" />
               <ion-icon onClick={() => removeExercise(exercise.id)} name="trash-outline" />

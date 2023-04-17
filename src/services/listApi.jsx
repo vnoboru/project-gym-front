@@ -14,3 +14,8 @@ export async function getFilterTech(nameTechnique) {
   const response = await api.get(`/technique/list?nameTechnique=${nameTechnique}`);
   return response.data;
 }
+
+export async function postList(body) {
+  const response = await api.post("/list", body);
+  return response.data;
+}

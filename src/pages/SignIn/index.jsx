@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import styled from "styled-components";
+import logo from "../../assets/images/logo.png";
 import UserContext from "../../contexts/UserContext";
 import useSignIn from "../../hooks/api/useSignIn";
+import { ContainerData, ContainerImage, ContainerScreen, SidebarLogo, StyledLink } from "../globalStylesPages";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -32,21 +33,23 @@ export default function SignIn() {
     }
   }
   return (
-    <div>
-      <ContainerLogin>
+    <ContainerScreen>
+      <ContainerImage>
+        <img src={logo} alt="logo" />
+      </ContainerImage>
+      <ContainerData>
         <form onSubmit={submit}>
-          <input label="E-mail" type="text" onChange={(e) => setEmail(e.target.value)} />
-          <input label="Senha" type="password" onChange={(e) => setPassword(e.target.value)} />
+          <input label="E-mail" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+          <input label="Senha" type="password" placeholder="Senha" onChange={(e) => setPassword(e.target.value)} />
           <button type="submit" color="primary" disabled={loadingSignIn}>
             Entrar
           </button>
         </form>
-      </ContainerLogin>
-      <div>
-        <Link to="/enroll">Não possui login? Inscreva-se</Link>
-      </div>
-    </div>
+        <StyledLink to="/enroll">Não possui login? Inscreva-se</StyledLink>
+      </ContainerData>
+      <SidebarLogo>
+        <img src={logo} alt="logo" />
+      </SidebarLogo>
+    </ContainerScreen>
   );
 }
-
-const ContainerLogin = styled.div``;

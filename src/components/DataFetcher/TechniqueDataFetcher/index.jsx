@@ -4,7 +4,7 @@ import TechniqueContext from "../../../contexts/TechniqueContext";
 import useDeleteTechnique from "../../../hooks/api/useDeleteTechnique";
 import usePutTechnique from "../../../hooks/api/usePutTechnique";
 import { InputData } from "../../GlobalComponentsStyles/styles";
-import { ContainerData, ContainerIcons, ContainerMain, ContainerTechnique } from "../dataStyles";
+import { ContainerData, ContainerIcons, ContainerInput, ContainerMain, ContainerTechnique } from "../dataStyles";
 
 export default function TechniqueDataFetcher() {
   const { techniqueInfo } = useContext(TechniqueContext);
@@ -46,36 +46,43 @@ export default function TechniqueDataFetcher() {
 
   return (
     <ContainerTechnique>
-      <ContainerMain>
-        <h1>Técnica</h1>
-        <h1>Descrição</h1>
-        <h1>Número de séries</h1>
-        <h1>Número de repetições</h1>
-      </ContainerMain>
+      <ContainerMain />
       {data
         .sort((a, b) => a.id - b.id)
         .map((technique) => (
           <ContainerData key={technique.id}>
-            <InputData
-              name="nameTechnique"
-              value={technique.nameTechnique || ""}
-              onChange={(event) => handleInputChange(event, technique.id)}
-            />
-            <InputData
-              name="description"
-              value={technique.description || ""}
-              onChange={(event) => handleInputChange(event, technique.id)}
-            />
-            <InputData
-              name="numberSeries"
-              value={technique.numberSeries || ""}
-              onChange={(event) => handleInputChange(event, technique.id)}
-            />
-            <InputData
-              name="numberRep"
-              value={technique.numberRep || ""}
-              onChange={(event) => handleInputChange(event, technique.id)}
-            />
+            <ContainerInput>
+              <h1>Técnica:</h1>
+              <InputData
+                name="nameTechnique"
+                value={technique.nameTechnique || ""}
+                onChange={(event) => handleInputChange(event, technique.id)}
+              />
+            </ContainerInput>
+            <ContainerInput>
+              <h1>Descrição:</h1>
+              <InputData
+                name="description"
+                value={technique.description || ""}
+                onChange={(event) => handleInputChange(event, technique.id)}
+              />
+            </ContainerInput>
+            <ContainerInput>
+              <h1>Número de séries:</h1>
+              <InputData
+                name="numberSeries"
+                value={technique.numberSeries || ""}
+                onChange={(event) => handleInputChange(event, technique.id)}
+              />
+            </ContainerInput>
+            <ContainerInput>
+              <h1>Número de repetições:</h1>
+              <InputData
+                name="numberRep"
+                value={technique.numberRep || ""}
+                onChange={(event) => handleInputChange(event, technique.id)}
+              />
+            </ContainerInput>
             <ContainerIcons>
               <ion-icon onClick={handleTechniqueChange} name="send-outline" />
               <ion-icon onClick={() => removeTechnique(technique.id)} name="trash-outline" />
