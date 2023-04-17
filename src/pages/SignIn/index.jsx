@@ -26,7 +26,7 @@ export default function SignIn() {
       if (email === "admin@admin.com") {
         navigate("/dashboard");
       } else {
-        console.log("vai acessar outra página");
+        navigate("/mypainel");
       }
     } catch (err) {
       toast.error("Não foi possível fazer o login!");

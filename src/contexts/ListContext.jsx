@@ -1,28 +1,28 @@
 import PropTypes from "prop-types";
 import { createContext, useMemo } from "react";
 import { toast } from "react-toastify";
-import useList from "../hooks/api/useList";
+import useListAll from "../hooks/api/useListAll";
 
 const ListContext = createContext();
 export default ListContext;
 
 export function ListProvider({ children }) {
-  const { list, listLoading, listError, getList } = useList();
+  const { listAll, listAllLoading, listAllError, getListAll } = useListAll();
 
-  if (listError) {
+  if (listAllError) {
     toast.error("Não pode conectar ao servidor. Por favor, tente novamente mais tarde.");
   }
 
   const value = useMemo(
     () => ({
-      getList,
-      listInfo: list,
-      listInfoError: listError,
+      getListAll,
+      listInfo: listAll,
+      listInfoError: listAllError,
     }),
-    [list, listError],
+    [listAll, listAllError],
   );
 
-  return <ListContext.Provider value={value}>{listLoading || listError ? null : children}</ListContext.Provider>;
+  return <ListContext.Provider value={value}>{listAllLoading || listAllError ? null : children}</ListContext.Provider>;
 }
 
 ListProvider.propTypes = {

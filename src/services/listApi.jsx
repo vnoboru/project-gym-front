@@ -1,7 +1,11 @@
 import api from "./api";
 
-export async function getList() {
-  const response = await api.get("/list?daysTraining=3");
+export async function getList(daysTraining) {
+  const response = await api.get(`/list?daysTraining=${daysTraining}`);
+  return response.data;
+}
+export async function getAllList() {
+  const response = await api.get("/list/all");
   return response.data;
 }
 

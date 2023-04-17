@@ -9,6 +9,7 @@ import { UserProvider } from "./contexts/UserContext";
 import { ExercisePage, TechniquePage, TrainingPage } from "./pages";
 import { DashboardPage } from "./pages/DashBoardPage";
 import Enroll from "./pages/Enroll";
+import MyPainelPage from "./pages/MyPainelPage";
 import SignIn from "./pages/SignIn";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                     <Route path="/dashboard/training" element={<TrainingPage />} />
                     <Route path="/dashboard/technique" element={<TechniquePage />} />
                     <Route path="/dashboard/exercise" element={<ExercisePage />} />
+                    <Route path="/mypainel" element={<MyPainelPage />} />
                   </Routes>
                 </Router>
               </ExerciseProvider>

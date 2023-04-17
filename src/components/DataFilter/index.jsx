@@ -83,8 +83,6 @@ export default function DataFilter() {
     } catch {
       toast.error("deu Erro!!!!");
     }
-
-    console.log(trainingObjects);
   };
 
   return (
