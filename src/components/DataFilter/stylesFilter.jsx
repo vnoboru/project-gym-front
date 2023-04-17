@@ -44,3 +44,50 @@ export const ContainerSelect = styled.div`
     height: 30px;
   }
 `;
+
+export const ContainerTraining = styled.div`
+  @media (max-width: 1024px) {
+    overflow-x: scroll;
+    scrollbar-width: none;
+    scrollbar-color: transparent;
+  }
+`;
+
+export const ContainerHeaderTraining = styled.ul`
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: -5px;
+  width: 1000px;
+
+  li {
+    font-size: 18px;
+    font-weight: 900;
+    width: 230px;
+    height: 25px;
+    padding-left: 5px;
+    padding-top: 10px;
+    margin-right: -3px;
+    margin-bottom: -3px;
+    border: 3px solid #000000;
+  }
+`;
+
+export const ContainerListTraining = styled.div`
+  display: flex;
+  margin-left: 20px;
+  margin-top: 5px;
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    width: 230px;
+    height: 25px;
+    margin-right: -3px;
+    margin-bottom: -3px;
+    padding-left: 5px;
+    padding-top: 10px;
+    border: 3px solid #000000;
+  }
+`;

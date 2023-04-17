@@ -81,7 +81,7 @@ export default function DataFilter() {
         window.location.reload();
       }, 2000);
     } catch {
-      toast.error("deu Erro!!!!");
+      toast.error("Ocorreu algum erro!");
     }
   };
 
